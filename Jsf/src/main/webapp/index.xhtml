@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head><title>Formulário User</title></h:head> 
+<h:body>
+	 
+	<h:form id="form">
+	<h:messages/>
+		<h:panelGrid columns="2">
+
+			<h:outputText value="ID:" />
+			<p:inputText id="id" value="#{userManagedBean.user.id}" required="true" requiredMessage="Obrigatório" maxlength="6" readonly="true"/>
+			<h:outputText value="Name:" />
+			<p:inputText id="name" value="#{userManagedBean.user.name}" required="true" requiredMessage="Nome é Obrigatório">
+				<f:validateLength for="name" minimum="5" maximum="50"></f:validateLength>
+			</p:inputText>
+			<h:outputText value="PassWord:" />
+			<p:password id="pass" maxlength="6" required="true" requiredMessage="PassWord é Obrigatório" value="#{userManagedBean.user.pass}"></p:password>
+			
+			<h:outputText value="" />
+			<h:commandButton action="#{userManagedBean.salvar()}" value="Enviar"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+</h:body> 
+</html>
